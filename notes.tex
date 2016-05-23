@@ -1,0 +1,62 @@
+% Author: Theseas Maroulis
+\documentclass[a4paper]{article}
+\usepackage{xltxtra}
+\usepackage[utf8]{inputenc}
+\usepackage[greek]{babel}
+\usepackage[a4paper, top=1.5cm, bottom=1.5cm, left=1.5cm,  right=1.5cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage[usenames,table]{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{multirow}
+\usepackage[pdfauthor={Θησέας Μαρούλης (std101957@ac.eap.gr)}, pdftitle={Πλη11 Σημειώσεις}, colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{listingsutf8}
+
+\pagestyle{fancy}
+\setmainfont[Mapping=tex-text]{DejaVu Sans}
+\everymath{\displaystyle}
+\renewcommand{\textdexiakeraia}{}
+
+\begin{document}
+% \chead{\large \color[HTML]{000090}\bfseries ΕΛΛΗΝΙΚΟ ΑΝΟΙΚΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ}
+% \lfoot{\small{ΓΕ\_4 ΠΛΗ11-ΑΘΗΝΑ\_04 2015-2016}}
+\title{Σημειώσεις πλη11}
+\author{Θησέας Μαρούλης}
+\date{\today}
+\lhead{Σημειώσεις πλη11 - Θησέας Μαρούλης}
+\lfoot{\small{Θησέας Μαρούλης}}
+\cfoot{}
+\rfoot{\small{\thepage/\pageref{LastPage}}}
+
+
+\lstset{
+	tabsize=4,
+	language={C++},
+	frame=single,
+	keepspaces=true,
+	%nunmbers=left,
+	numbersep=5pt,
+	breaklines=true,
+	commentstyle=\color{gray},
+	keywordstyle=\bfseries\color{blue}
+}
+\maketitle
+
+\pagebreak
+\tableofcontents
+
+\include{texnologia}
+
+\include{db}
+
+\include{leitourgika}
+
+\include{diafora}
+
+\end{document}
