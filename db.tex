@@ -1,0 +1,47 @@
+\section{SQL}
+
+\subsection{Select}
+
+\lstset{language=SQL}
+
+\begin{lstlisting}[caption=select example]
+select column1, column2, ... from table1 where ...; 
+\end{lstlisting}
+
+\begin{lstlisting}[caption=inner join example]
+select column1, ... from table1 inner join table2 on table1.column_name=table2.column_name;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=left join example]
+select column1, ... from table1 left join table2 on table1.column_name=table2.column_name;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=right join example]
+select column1, ... from table1 right join table2 on table1.column_name=table2.column_name;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=full join example]
+select column1, ... from table1 full join table2 on table1.column_name=table2.column_name;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=like example]
+select * from table1 where column_name like pattern;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=distinct example]
+select distinct table1.column1, table2.column2, ... from table1, table2 where table1.column1=table2.column1;
+\end{lstlisting}
+
+\textbf{Προσοχή} Oι στήλες που θα χρησιμοποιηθούν στα groub by, order by, having πρέπει να υπάρχουν στην επιλογή
+
+\begin{lstlisting}[caption=order by example]
+select column_name(s) from table1 order by column_name [asc|desc];
+\end{lstlisting}
+
+\begin{lstlisting}[caption=group by example]
+select column_name(s) from table1 where column_name operator value group by column_name;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=having example]
+select column1, count(column1) from table1 group by column1 having count(column1)=1;
+\end{lstlisting}
