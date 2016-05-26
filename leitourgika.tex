@@ -342,3 +342,199 @@ void writer(){
 				διεργασίες µε µεγαλύτερες προτεραιότητες από εκείνη κάποιας άλλης διεργασίας.
 		\end{itemize}
 \end{itemize}
+
+\subsection{Μνήμη}
+
+\subsubsection{Σελίδοποίηση}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{paging.png}
+	\caption{Paging}
+\end{figure}
+
+\begin{center}
+\begin{tabularx}{0.5\textwidth}{|X|X|}
+	\hline
+	Όρος & Περιγραφή \\
+	\hline
+	p & Αριθμός σελίδας \\
+	\hline
+	f & Αριθμός Πλαισίου \\
+	\hline
+	d & Μετατόπιση (offset)\\
+	\hline
+	1 & Present bit (αν βρίσκεται η σελίδα στην μνήμη ή όχι) \\
+	\hline
+	ptr & {Page table register περιέχει τη διεύθυνση της φυσικής
+	μνήμης όπου αρχίζει (έχει φορτωθεί) ο πίνακας σελίδων
+	για την τρέχουσα διεργασία/πρόγραμμα } \\
+	\hline
+\end{tabularx}
+\end{center}
+
+\textbf{Προσοχή} Το + εδώ σημαίνει συνένωση όχι πρόσθεση!!! \\
+
+\paragraph{Μορφή ιδεατής διεύθυνσης `U' (n bits):} Αριθμός Ιδεατής Σελίδας `p' (n-k bits) +
+Μετατόπιση `d' (k bits) \\
+
+\paragraph{Μετατροπή σε φυσική διεύθυνση Φ (σύνολο m bits):} Αριθμός φυσικής σελίδας `f' (m-k bits)  +
+Μετατόπιση `d' (k bits)
+
+\subsubsection{Μέσος Χρόνος Προσπέλασης Μνήμης}
+
+Έστω ότι x (χρόνος προσπέλασης στους συσχετιστικούς καταχωρητές), y (χρόνος προσπέλασης της μνήμης),
+p (ποσοστό επιτυχίας), p' ποσοστό αποτυχίας και $ 0 \le p, p' \le 1$, $ p + p' = 1$.
+
+Για να υπολογίσουμε τον μέσο χρόνο προσπέλασης μνήμης (effective memory access time) κάνουμε:
+$$ \text{Effective access time} = p \cdot (x+y) + p' \cdot (x+2y) $$
+
+\subsubsection{Τμηματοποίηση}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{segmentaion.png}
+	\caption{segmentation}
+\end{figure}
+
+\begin{center}
+\begin{tabularx}{0.5\textwidth}{|X|X|}
+	\hline
+	Όρος & Περιγραφή \\
+	\hline
+	s & Θέση στον πίνακα τμημάτων της διεργασίας \\
+	\hline
+	d & Μετατόπιση (offset). \textbf{Προσοχή} πρέπει να είναι μικρότερη από το μήκος. \\
+	\hline
+	STBR & {Segment Table Base Register: Σε ποια διεύθυνση
+	της μνήμης αρχίζει ο πίνακας τμημάτων της διεργασίας μας} \\
+	\hline
+\end{tabularx}
+\end{center}
+
+\paragraph{Κάθε λογική διεύθυνση U (n bits) είναι στη μορφή:}
+$$ \text{Αριθμός Λογικού Τμήματος }s (n-k~bits) + \text{ Μετατόπιση } d (k~bits) $$
+$$ \text{Μέγιστος αριθμός τμημάτων: } 2^{n-k}\text{  Μέγιστο μέγεθος τμήματος: } 2^k $$
+\paragraph{Μετατρέπεται σε μία Φυσική Διεύθυνση Φ στη μορφή:}
+$$ \text{Διεύθυνση Βάσης Τμήματος } + \text{ Μετατόπιση } d (k~bits) $$
+
+\subsubsection{Σελιδοποιημένη Τμηματοποίηση}
+
+\paragraph{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{|X|X|X|}
+\hline
+Αριθμός Τμήματος s(n-k bits) & \multicolumn{2}{|l|}{ + Μετατόπιση d (k bits)} \\
+\hline
+{} & Αρ. Σελίδας p & Μετατ. Σελίδας d' \\
+\hline
+\end{tabularx}
+\end{center}
+
+\paragraph{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{X X}
+Αριθμός Φυσικής Σελίδας f(m-k' bits) & + Μετατόπιση d'(k' bits)
+\end{tabularx}
+\end{center}
+
+\begin{figure}[!ht]
+	\includegraphics[width=0.75\textwidth]{paged_segmentation.png}
+	\caption{Paged Segmentation (για τους όρους βλέπε τμηματοποίηση και σελιδοποίηση)}
+\end{figure}
+
+\subsubsection{Τμηματοποιημένη Σελιδοποίηση}
+
+Οταν ο πίνακας σελίδων είναι πολύ μεγάλος...
+\begin{itemize}
+	\item	Μπορούμε να τον τμηματοποιήσουμε Segmented Paging = τμηματοποίηση του πίνακα σελίδων 
+		σε περισσότερα (μεταβλητού μεγέθους) τμήματα.
+	\item	Κάθε τμήμα του πίνακα σελίδων μπορούμε να το διαχειριστούμε
+		ανεξάρτητα και είτε να βρίσκεται φορτωμένο στη μνήμη είτε όχι
+		(ανάλογα με το αν χρησιμοποιείται συχνά από τη διεργασία).
+	\item	Μεγάλα τμήματα στο τέλος του Πίνακα Σελίδων που είναι
+		άχρηστα μπορούμε να τα διαχειριστούμε αποτελεσματικά χωρίς
+		να καταλαμβάνουν χώρο στη μνήμη.
+	\item	Καθώς έχουμε πολλαπλά μικρά τμήματα αντί ενός πολύ μεγάλου,
+		είναι πιο εύκολη η διαδικασία εύρεσης και εκχώρησης
+		ακολουθιακού χώρου μνήμης για κάθε ένα από αυτά
+\end{itemize}
+
+
+\paragraph{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}
+
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{|X|X|X|}
+\hline
+\multicolumn{2}{|l|}{Αριθμός Ιδεατής Σελίδας p(n bits)} & {Μετατόπιση d (k bits)} \\
+\hline
+Αρ. Τμήματος του Π.Σ. s & Μετατ. στο τμήμα p' & {} \\
+\hline
+\end{tabularx}
+\end{center}
+
+\paragraph{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}
+
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{XX}
+Αριθμός Φυσικής Σελίδας f(m-k' bits) & + Μετατόπιση d' (k' bits)
+\end{tabularx}
+\end{center}
+
+Οπου m είναι τα bits της Τελικής Φυσικής Διεύθυνσης αν το
+συνολικό μέγεθος αυτής θεωρηθεί 
+$$ M = 2^m $$
+
+\subsection{Αντικατάσταση σελίδων}
+\begin{itemize}
+	\item	Προστασία: χρήση ξεχωριστού πίνακα σελίδων για κάθε διεργασία.
+	\item	Αλγόριθμοι αντικατάστασης:
+		\begin{itemize}
+			\item	First-In-First-Out (FIFO)
+			\item	Least Recently Used (LRU)
+			\item	Longest Residence in Memory (LRM)
+			\item	Least Frequently Used (LFU)
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{FIFO}
+
+Αντικατέστησε την παλαιότερη σελίδα (αυτή που έχει εισαχθεί πρώτη).
+Προβλήματα:
+\begin{itemize}
+	\item	Μπορεί οι παλιές σελίδες να χρησιμοποιούνται συχνά.
+	\item	Τα σφάλματα αναφοράς μπορεί να αυξηθούν 
+		όσο αυξάνονται τα πλαίσια σελίδας!!! (Belady’s Anomaly)
+\end{itemize}
+
+\subsubsection{Αλγόριθμος $2^\text{ης}$ Ευκαιρίας}
+
+\begin{itemize}
+	\item	Βασίζεται στη στρατηγική FIFO: εξετάζει σελίδες αρχίζοντας
+		από την πιο παλιά αλλά χρησιμοποιεί και bit αναφοράς.
+	\item	1η αναφορά σε σελίδα και τοποθέτησή της σε πλαίσιο -> R = 1
+	\item	Επιλέγει την πιο παλιά σελίδα και εξετάζει το R bit.
+		\begin{itemize}
+			\item	Αν R=0 τότε την αντικαθιστά και η νέα σελίδα έχει R = 1.
+			\item	Αν R = 1 τότε
+				\begin{itemize}
+					\item	κάνει το bit R = 0
+					\item	η σελίδα τοποθετείται στο τέλος της λίστας 
+						(δηλ. "βαφτίζεται" σαν η πιο πρόσφατη σελίδα).
+					\item	η αναζήτηση θύματος συνεχίζεται στην επόμενη πιο παλιά σελίδα.
+				\end{itemize}
+			\item	Αν R=1 για όλες τις σελίδες, τότε second-chance είναι στην ουσία FIFO, 
+				γιατί κάνει τα R όλων των σελίδων 0 και μετά επίλέγει την παλιότερη όπως ο FIFO.
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{LRU}
+
+\begin{itemize}
+	\item	Αντικατέστησε τη σελίδα που δεν έχει χρησιμοποιηθεί για το μεγαλύτερο διάστημα.
+	\item	Προβλήματα:
+		\begin{itemize}
+			\item	"Ακριβή" υλοποίηση: π.χ. Ανάγκη διατήρησης χρονικής πληροφορίας
+				(time stamp) για κάθε σελίδα.
+		\end{itemize}
+\end{itemize}

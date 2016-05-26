@@ -17,6 +17,24 @@
 \contentsline {subsubsection}{\numberline {2.2.5}Αναγνώστες και Συγγραφείς}{8}{subsubsection.2.2.5}
 \contentsline {subsubsection}{\numberline {2.2.6}Χρονοδρομολόγηση διεργασιών}{8}{subsubsection.2.2.6}
 \contentsline {paragraph}{Αλγόριθμοι Χρονοδρομολόγησης}{8}{section*.4}
-\contentsline {section}{\numberline {3}Διάφορες σημειώσεις}{10}{section.3}
-\contentsline {subsection}{\numberline {3.1}Πίνακας Μετατροπών}{10}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Δυνάμεις του 2}{10}{subsection.3.2}
+\contentsline {subsection}{\numberline {2.3}Μνήμη}{9}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Σελίδοποίηση}{9}{subsubsection.2.3.1}
+\contentsline {paragraph}{Μορφή ιδεατής διεύθυνσης `U' (n bits):}{9}{section*.5}
+\contentsline {paragraph}{Μετατροπή σε φυσική διεύθυνση Φ (σύνολο m bits):}{9}{section*.6}
+\contentsline {subsubsection}{\numberline {2.3.2}Μέσος Χρόνος Προσπέλασης Μνήμης}{9}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Τμηματοποίηση}{10}{subsubsection.2.3.3}
+\contentsline {paragraph}{Κάθε λογική διεύθυνση U (n bits) είναι στη μορφή:}{10}{section*.7}
+\contentsline {paragraph}{Μετατρέπεται σε μία Φυσική Διεύθυνση Φ στη μορφή:}{10}{section*.8}
+\contentsline {subsubsection}{\numberline {2.3.4}Σελιδοποιημένη Τμηματοποίηση}{10}{subsubsection.2.3.4}
+\contentsline {paragraph}{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}{10}{section*.9}
+\contentsline {paragraph}{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}{10}{section*.10}
+\contentsline {subsubsection}{\numberline {2.3.5}Τμηματοποιημένη Σελιδοποίηση}{10}{subsubsection.2.3.5}
+\contentsline {paragraph}{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}{11}{section*.11}
+\contentsline {paragraph}{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}{11}{section*.12}
+\contentsline {subsection}{\numberline {2.4}Αντικατάσταση σελίδων}{11}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}FIFO}{12}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Αλγόριθμος $2^\text {ης}$ Ευκαιρίας}{12}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}LRU}{12}{subsubsection.2.4.3}
+\contentsline {section}{\numberline {3}Διάφορες σημειώσεις}{13}{section.3}
+\contentsline {subsection}{\numberline {3.1}Πίνακας Μετατροπών}{13}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Δυνάμεις του 2}{13}{subsection.3.2}
