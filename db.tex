@@ -24,6 +24,21 @@ select column1, ... from table1 right join table2 on table1.column_name=table2.c
 select column1, ... from table1 full join table2 on table1.column_name=table2.column_name;
 \end{lstlisting}
 
+\begin{lstlisting}[caption=union example]
+(select column(s) from table1) union 
+(select column(s) from table2);
+\end{lstlisting}
+
+\begin{lstlisting}[caption=any example]
+select columns from table1 where column1 = any 
+(select column1 from table2);
+\end{lstlisting}
+
+\begin{lstlisting}[caption=all example]
+select name from student where birth_date < all 
+(select date from professor);
+\end{lstlisting}
+
 \begin{lstlisting}[caption=like example]
 select * from table1 where column_name like pattern;
 \end{lstlisting}
@@ -32,7 +47,9 @@ select * from table1 where column_name like pattern;
 select distinct table1.column1, table2.column2, ... from table1, table2 where table1.column1=table2.column1;
 \end{lstlisting}
 
-\textbf{Προσοχή:} Oι στήλες που θα χρησιμοποιηθούν στα groub by, order by, having πρέπει να υπάρχουν στην επιλογή
+\textbf{Προσοχή:} Oι στήλες που θα χρησιμοποιηθούν στα groub by, order by, having πρέπει να υπάρχουν στην επιλογή.
+
+Η σειρά των εντολών είναι: select; from; where, group by, having, order by
 
 \begin{lstlisting}[caption=order by example]
 select column_name(s) from table1 order by column_name [asc|desc];
@@ -45,3 +62,58 @@ select column_name(s) from table1 where column_name operator value group by colu
 \begin{lstlisting}[caption=having example]
 select column1, count(column1) from table1 group by column1 having count(column1)=1;
 \end{lstlisting}
+
+\subsection{Operators}
+
+\begin{lstlisting}[caption=operators list]
+=
+<=
+>=
+>
+<
+<>
+between <value> and <value>
+like "%pattern%"
+in (<set>)
+is null
+is not null
+is not distinct from
+as
+\end{lstlisting}
+
+\subsection{Εντολές Συνόλων}
+
+\begin{lstlisting}[caption=set commands]
+distinct
+in
+all
+any
+exists
+not exists
+unique
+union
+intersect
+contains
+except /* diafora 2 sunolwn */
+\end{lstlisting}
+
+\subsection{Create, Alter, Drop}
+
+\begin{lstlisting}[caption=create database]
+create database <name>;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=create table]
+create table <name> (id int not null, foreign_id int, ...,
+primary key (id), foreign key (foreign_id) references table(foreign_id));
+\end{lstlisting}
+
+\begin{lstlisting}[caption=alter table]
+alter table <name> add <column> <definition>;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=drop]
+drop database <name>;
+drop table <name>;
+\end{lstlisting}
+
