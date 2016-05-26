@@ -1,5 +1,7 @@
 \section{Λειτουργικά Συστήματα}
 
+\lstset{language=C++}
+
 \subsection{Παράλληλες διεργασίες}
 
 \subsubsection{Γράφος προτεραιότητας – εντολές παραλληλισμού}
@@ -60,3 +62,283 @@ D4;
 με τη χρήση των δυνατοτήτων του hardware (π.χ. η
 συνάρτηση TestAndSet)
 
+\subsubsection{Mutex - Peterson}
+
+Οι interested0,1 εκφράζουν πρόθεση να μπουν στην κρίσιμη περιοχή, 
+ενώ η turn δηλώνει ποιος έχει σειρά να μπει.
+
+
+\begin{lstlisting}[caption=Init Values]
+turn = 0;
+interested0 = false;
+interested1 = false;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Process P0]
+while(true){
+	interested0 = true;
+	turn = 0;
+	while(interested1==true && turn == 0){}
+	critical_section();
+	interested0 = false;
+	non_critical_section();
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Process P1]
+while(true){
+	interested1 = true;
+	turn = 1;
+	while(interested0==true && turn == 1){}
+	critical_section():
+	interested1 = false;
+	non_critical_section();
+}
+\end{lstlisting}
+
+\subsubsection{Mutex - Dekker}
+
+Αν και οι δύο διεργασίες θέλουν να
+εισέλθουν στην κρίσιμη περιοχή, θα
+θέσουν τις αντίστοιχες μεταβλητές true.
+Η μεταβλητή turn θα λειτουργήσει τότε ως
+διαιτητής για να αποτρέψει τη λιμοκτονία
+(starvation) δηλαδή το να μη μπορεί καμία
+διεργασία να μπει στην κρίσιμη περιοχή.
+
+\begin{lstlisting}[caption=Init values]
+turn = 1;
+interested0 = false;
+interested1 = false;
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Process P0]
+while(true){
+	interested0 = true;
+	while(interested1==true){
+		if(turn==1){
+			interested0 = false;
+			while(turn==1){}
+			interested0 = true;
+		}
+	}
+	critical_section():
+	turn = 1;
+	interested0 = false;
+	non_critical_section;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Process P1]
+while(true){
+	interested1 = true;
+	while(interested0==true){
+		if(turn==0){
+			interested1 = false;
+			while(turn==0){}
+			interested1 = true;
+		}
+	}
+	critical_section();
+	turn = 0;
+	interested1 = false;
+	non_critical_section();
+}
+\end{lstlisting}
+
+\subsection{Σημαφόροι}
+
+\begin{lstlisting}[caption=wait or P or down function implementaion]
+void signal(int *s){
+	while(*s<=0) {}
+	*s = *s - 1;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=signal or V or up function implementaiton]
+void wait(int *s){
+	*s = *s + 1;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=General semaphore implementation]
+void wait(semaphore *u){
+	u->count--;
+	if(u->count < 0){
+		*u.queue.push(this_process);
+		this_process.block();
+	}
+}
+
+void signal(semaphore *u){
+	u->count++
+	if(u->count<=0){
+		*u.queue.pop();
+		*u.ready_queue.push(this_process);
+	}
+}
+\end{lstlisting}
+
+Κάθε σημαφόρος διαθέτει μια ουρά στην οποία συνδέονται οι διεργασίες που
+έχουν ανασταλεί λόγω της εκτέλεσης ενός wait (συχνά αναφερόμαστε σε αυτές
+ως «μπλοκαρισμένες διεργασίες»).
+
+\subsubsection{Ορισμός σημαφόρου}
+
+\begin{itemize}
+	\item	Υψηλότερου επιπέδου δομή για να πετύχουμε αμοιβαίο αποκλεισμό
+	\item	Μέσω δύο πράξεων
+		\begin{itemize}
+			\item	Wait (S) ή P(S) ή Down(S)
+			\item	Signal (S) ή V(S) ή Up(S)
+		\end{itemize}
+	\item	Μια εντολή σημαφόρου (wait ή signal) με ευθύνη
+		του ΛΣ εκτελείται ατομικά, δηλ. αν μια διεργασία
+		αρχίσει να εκτελεί π.χ. ένα wait σε ένα σημαφόρο,
+		δεν επιτρέπεται να διακοπεί και η εκτέλεσή του
+		wait αντιμετωπίζεται ως ένα αδιαίρετο βήμα.
+\end{itemize}
+
+\subsubsection{Είδη σημαφόρων}
+
+\begin{itemize}
+	\item	Βinary
+		\begin{itemize}
+			\item	Παίρνει τιμές 0 και 1
+			\item	Προστατεύει την προσπέλαση των κρίσιμων περιοχών
+			\item	mutex
+		\end{itemize}
+	\item	Γενική σημαφόρος
+		\begin{itemize}
+			\item	Μπορεί να παίρνει οποιαδήποτε θετική τιμή
+		\end{itemize}
+\end{itemize}
+
+\textbf{Προσοχή:} Όλοι οι σημαφόροι πρέπει να είναι αρχικοποιημένοι!!!
+
+\subsubsection{Προστασία κρίσιμων περιοχών}
+
+Έστω δύο διεργασίες Α και Β που ενεργούν
+πάνω στο υπόλοιπο Χ ενός λογαριασμού τράπεζας:
+
+\begin{lstlisting}
+semaphore mutex = 1; // mutex init value
+
+void process_a(){
+	wait (mutex);
+	X = X + amount;
+	signal (mutex);
+}
+
+void process_b(){
+	wait (mutex);
+	X = X - amount;
+	signal (mutex);
+}
+\end{lstlisting}
+
+\subsubsection{Συγχρονισμός διεργασιών}
+
+Έστω δύο διεργασίες Α και Β. H A τυπώνει τη
+λέξη ping και η Β τη λέξη pong:
+
+\begin{lstlisting}
+semaphore sem_a = 1;
+semaphore sem_b = 0;
+
+void process_a(){
+	wait(sem_a);
+	print("ping");
+	signal(sem_b);
+}
+
+void process_b(){
+	wait(sem_b);
+	print("pong");
+	signal(sem_a);
+}
+\end{lstlisting}
+
+\subsubsection{Αναγνώστες και Συγγραφείς}
+
+\begin{lstlisting}
+semaphore rc_sem, write_sem = 1;
+int readcount = 0;
+
+void reader(){
+	wait(rc_sem);
+	readcount++;
+	if(readcount = 1)
+		wait(write_sem);
+	signal(rc_sem);
+	
+	read(myfile, 'r');
+	
+	wait(rc_sem);
+	readcount--;
+	if(readcount = 0)
+		signal(write_sem);
+	signal(rc_sem);
+}
+
+void writer(){
+	wait(write_sem);
+	write(myfile, 'w');
+	signal(write_sem);
+}
+\end{lstlisting}
+
+
+\subsubsection{Χρονοδρομολόγηση διεργασιών}
+
+\begin{itemize}
+	\item	\textbf{Μη - Προεκχωρητικοί αλγόριθμοι:}
+		Επιτρέπουν στις επιλεγμένες διεργασίες να κρατήσουν την
+		ΚΜΕ μέχρι να ανασταλεί ή να τερματίσει.
+	\item	\textbf{Προεκχωρητικοί αλγόριθμοι:}
+		Η εκτέλεση της διεργασίας που κατέχει την ΚΜΕ
+		διακόπτεται περιοδικά και ο χρονοδρομολογητής καλείται
+		να αποφασίσει ποια θα είναι η επόμενη.
+	\item	Μετρικές απόδοσης
+		\begin{itemize}
+			\item 	Χρόνος διεκπεραίωσης: $ \text{ΧΔ} = t_\text{περάτωσης εκτέλεσης} - t_\text{εισόδου στο σύστημα} $
+			\item 	Χρόνος Αναμονής: $ \text{ΧΑ} = \text{ΧΔ} - t_\text{χρόνος εκτέλεσης εργασίας στην ΚΜΕ} $
+			\item 	$ \text{Ρυθμός απόδοσης} = \frac{\text{Αρ. διεργ. που ολοκληρώνονται}}{t} $
+			\item	$ \text{Χρόνος απόκρισης} = t_\text{έναρξης εξυπηρέτησης} – t_\text{υποβολής} $
+		\end{itemize}
+\end{itemize}
+
+\paragraph{Αλγόριθμοι Χρονοδρομολόγησης}
+
+\begin{itemize}
+	\item	First Come First Served - FCFS
+		\begin{itemize}
+			\item	Δίκαιος Αλγόριθμος.
+			\item	Παρουσιάζει πρόβλημα αν μια μεγάλη διεργασία μπει πριν από μια ή περισσότερες
+				μικρές διεργασίες.
+		\end{itemize}
+	\item	Round Robin - RR (προεκχωρητική έκδοση FCFS)
+		\begin{itemize}
+			\item	Εξαιρετικά δίκαιος αλγόριθμός.
+			\item	Δεν προκαλεί καθυστερήσεις στις μικρές διεργασίες, γεγονός που τον κάνει ιδανικό
+				για συστήματα διαμοιρασμού χρόνου.
+			\item	Αν το κβάντο χρόνου είναι µεγάλο, µπορεί να προκληθούν µεγάλοι χρόνοι
+				απόκρισης σε µικρές αλληλεπιδραστικές διεργασίες.
+			\item	Αν το κβάντο χρόνου είναι µικρό, εναλλαγές διεργασιών γίνονται πολύ συχνά, 
+				γεγονός που µειώνει την αποδοτικότητα της ΚΜΕ.
+		\end{itemize}
+	\item	Shortest Job First - SJF
+		\begin{itemize}
+			\item	Όπως και ο αλγόριθμος προτεραιοτήτων μπορεί να προκαλέσει παρατεταμένη
+				στέρηση για μεγάλες διεργασίες.
+			\item	Πολύ δύσκολος στην υλοποίηση γιατί δεν γνωρίζουμε εκ των προτέρων πόσο
+				χρόνο θα χρειαστεί η κάθε διεργασία.
+		\end{itemize}
+	\item 	Shortest Remaining Time First – SRTF (προεκχωρητική έκδοση SJF)
+	\item	Priority
+		\begin{itemize}
+			\item	Δρομολόγηση διεργασιών βάση προτεραιοτήτων
+			\item	Μπορεί να οδηγήσει σε παρατεταµένη στέρηση αν στο σύστηµα εισέρχονται διαρκώς
+				διεργασίες µε µεγαλύτερες προτεραιότητες από εκείνη κάποιας άλλης διεργασίας.
+		\end{itemize}
+\end{itemize}
