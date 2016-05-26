@@ -108,6 +108,11 @@ create table <name> (id int not null, foreign_id int, ...,
 primary key (id), foreign key (foreign_id) references table(foreign_id));
 \end{lstlisting}
 
+\begin{lstlisting}[caption=create view]
+create view <name>
+as select <columns> from <table>
+where <condition>;
+
 \begin{lstlisting}[caption=alter table]
 alter table <name> add <column> <definition>;
 \end{lstlisting}
@@ -115,5 +120,6 @@ alter table <name> add <column> <definition>;
 \begin{lstlisting}[caption=drop]
 drop database <name>;
 drop table <name>;
+drop view <name>;
 \end{lstlisting}
 
