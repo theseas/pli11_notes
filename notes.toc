@@ -11,7 +11,7 @@
 \contentsline {paragraph}{Πηγή ή Αποδέκτης Δεδομένων}{8}{section*.2}
 \contentsline {paragraph}{Μετασχηματισμός Δεδομένων (αλλάζει την είσοδο σε έξοδο)}{8}{section*.3}
 \contentsline {paragraph}{Αποθήκη Δεδομένων}{8}{section*.4}
-\contentsline {section}{\numberline {4}}{9}{section.4}
+\contentsline {section}{\numberline {4}Διάγραμμα Μετάβασης Καταστάσεων}{9}{section.4}
 \contentsline {section}{\numberline {5}Λεξικό Δεδομένων}{9}{section.5}
 \contentsline {section}{\numberline {6}SQL}{10}{section.6}
 \contentsline {subsection}{\numberline {6.1}Select}{10}{subsection.6.1}
