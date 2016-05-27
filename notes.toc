@@ -54,7 +54,7 @@
 \contentsline {subsubsection}{\numberline {12.3.4}Σελιδοποιημένη Τμηματοποίηση}{23}{subsubsection.12.3.4}
 \contentsline {paragraph}{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}{23}{section*.12}
 \contentsline {paragraph}{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}{23}{section*.13}
-\contentsline {subsubsection}{\numberline {12.3.5}Τμηματοποιημένη Σελιδοποίηση}{23}{subsubsection.12.3.5}
+\contentsline {subsubsection}{\numberline {12.3.5}Τμηματοποιημένη Σελιδοποίηση}{24}{subsubsection.12.3.5}
 \contentsline {paragraph}{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}{24}{section*.14}
 \contentsline {paragraph}{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}{24}{section*.15}
 \contentsline {subsection}{\numberline {12.4}Αντικατάσταση σελίδων}{24}{subsection.12.4}
