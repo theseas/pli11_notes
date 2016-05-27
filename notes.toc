@@ -1,50 +1,64 @@
 \select@language {greek}
-\contentsline {section}{\numberline {1}SQL}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Select}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Operators}{4}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Εντολές Συνόλων}{4}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Functions}{4}{subsection.1.4}
-\contentsline {subsection}{\numberline {1.5}Types}{4}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}Create, Alter, Drop}{5}{subsection.1.6}
-\contentsline {subsection}{\numberline {1.7}Insert, Delete, Update}{5}{subsection.1.7}
-\contentsline {section}{\numberline {2}QBE}{5}{section.2}
-\contentsline {section}{\numberline {3}Κανονικές Μορφές}{6}{section.3}
-\contentsline {section}{\numberline {4}Διάγραμμα Οντοτήτων - Συσχετίσεων (ΔΟΣ)}{6}{section.4}
-\contentsline {subsubsection}{\numberline {4.0.1}Μετατροπή ΔΟΣ σε Πίνακες}{7}{subsubsection.4.0.1}
-\contentsline {section}{\numberline {5}Λειτουργικά Συστήματα}{8}{section.5}
-\contentsline {subsection}{\numberline {5.1}Παράλληλες διεργασίες}{8}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Γράφος προτεραιότητας – εντολές παραλληλισμού}{8}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Συγχρονισμός}{8}{subsubsection.5.1.2}
-\contentsline {paragraph}{Κρίσιμες περιοχές - Αμοιβαίος αποκλεισμός}{8}{section*.2}
-\contentsline {paragraph}{Κρίσιμη περιοχή - Υλοποίηση}{9}{section*.3}
-\contentsline {subsubsection}{\numberline {5.1.3}Mutex - Peterson}{9}{subsubsection.5.1.3}
-\contentsline {subsubsection}{\numberline {5.1.4}Mutex - Dekker}{9}{subsubsection.5.1.4}
-\contentsline {subsection}{\numberline {5.2}Σημαφόροι}{10}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Ορισμός σημαφόρου}{10}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Είδη σημαφόρων}{11}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Προστασία κρίσιμων περιοχών}{11}{subsubsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.4}Συγχρονισμός διεργασιών}{11}{subsubsection.5.2.4}
-\contentsline {subsubsection}{\numberline {5.2.5}Αναγνώστες και Συγγραφείς}{12}{subsubsection.5.2.5}
-\contentsline {subsubsection}{\numberline {5.2.6}Χρονοδρομολόγηση διεργασιών}{12}{subsubsection.5.2.6}
-\contentsline {paragraph}{Αλγόριθμοι Χρονοδρομολόγησης}{12}{section*.4}
-\contentsline {subsection}{\numberline {5.3}Μνήμη}{13}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Σελίδοποίηση}{13}{subsubsection.5.3.1}
-\contentsline {paragraph}{Μορφή ιδεατής διεύθυνσης `U' (n bits):}{13}{section*.5}
-\contentsline {paragraph}{Μετατροπή σε φυσική διεύθυνση Φ (σύνολο m bits):}{13}{section*.6}
-\contentsline {subsubsection}{\numberline {5.3.2}Μέσος Χρόνος Προσπέλασης Μνήμης}{13}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {5.3.3}Τμηματοποίηση}{14}{subsubsection.5.3.3}
-\contentsline {paragraph}{Κάθε λογική διεύθυνση U (n bits) είναι στη μορφή:}{14}{section*.7}
-\contentsline {paragraph}{Μετατρέπεται σε μία Φυσική Διεύθυνση Φ στη μορφή:}{14}{section*.8}
-\contentsline {subsubsection}{\numberline {5.3.4}Σελιδοποιημένη Τμηματοποίηση}{14}{subsubsection.5.3.4}
-\contentsline {paragraph}{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}{14}{section*.9}
-\contentsline {paragraph}{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}{14}{section*.10}
-\contentsline {subsubsection}{\numberline {5.3.5}Τμηματοποιημένη Σελιδοποίηση}{14}{subsubsection.5.3.5}
-\contentsline {paragraph}{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}{15}{section*.11}
-\contentsline {paragraph}{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}{15}{section*.12}
-\contentsline {subsection}{\numberline {5.4}Αντικατάσταση σελίδων}{15}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}FIFO}{16}{subsubsection.5.4.1}
-\contentsline {subsubsection}{\numberline {5.4.2}Αλγόριθμος $2^\text {ης}$ Ευκαιρίας}{16}{subsubsection.5.4.2}
-\contentsline {subsubsection}{\numberline {5.4.3}LRU}{16}{subsubsection.5.4.3}
-\contentsline {section}{\numberline {6}Διάφορες σημειώσεις}{17}{section.6}
-\contentsline {subsection}{\numberline {6.1}Πίνακας Μετατροπών}{17}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Δυνάμεις του 2}{17}{subsection.6.2}
+\contentsline {section}{\numberline {1}Μοντέλα Κύκλου Ζωής Λογισμικού}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Μοντέλο Καταρράκτη}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Μεντέλο Πρωτοτυποποίησης}{4}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Μοντέλο Λειτουργικής Επαύξησης}{4}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Σπειροειδές Μοντέλο}{5}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Μοντέλο Πίδακα}{6}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Γενικό Μοντελό}{7}{subsection.1.6}
+\contentsline {section}{\numberline {2}Απαιτήσεις από το Λογισμικό}{7}{section.2}
+\contentsline {section}{\numberline {3}Διάγραμμα Ροής Δεδομένων}{8}{section.3}
+\contentsline {paragraph}{Πηγή ή Αποδέκτης Δεδομένων}{8}{section*.2}
+\contentsline {paragraph}{Μετασχηματισμός Δεδομένων (αλλάζει την είσοδο σε έξοδο)}{8}{section*.3}
+\contentsline {paragraph}{Αποθήκη Δεδομένων}{8}{section*.4}
+\contentsline {section}{\numberline {4}}{9}{section.4}
+\contentsline {section}{\numberline {5}Λεξικό Δεδομένων}{9}{section.5}
+\contentsline {section}{\numberline {6}SQL}{10}{section.6}
+\contentsline {subsection}{\numberline {6.1}Select}{10}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Operators}{11}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Εντολές Συνόλων}{11}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Functions}{11}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Types}{11}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Create, Alter, Drop}{12}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}Insert, Delete, Update}{12}{subsection.6.7}
+\contentsline {section}{\numberline {7}QBE}{12}{section.7}
+\contentsline {section}{\numberline {8}Κανονικές Μορφές}{13}{section.8}
+\contentsline {section}{\numberline {9}Διάγραμμα Οντοτήτων - Συσχετίσεων (ΔΟΣ)}{13}{section.9}
+\contentsline {subsubsection}{\numberline {9.0.1}Μετατροπή ΔΟΣ σε Πίνακες}{14}{subsubsection.9.0.1}
+\contentsline {section}{\numberline {10}Λειτουργικά Συστήματα}{15}{section.10}
+\contentsline {subsection}{\numberline {10.1}Παράλληλες διεργασίες}{15}{subsection.10.1}
+\contentsline {subsubsection}{\numberline {10.1.1}Γράφος προτεραιότητας – εντολές παραλληλισμού}{15}{subsubsection.10.1.1}
+\contentsline {subsubsection}{\numberline {10.1.2}Συγχρονισμός}{15}{subsubsection.10.1.2}
+\contentsline {paragraph}{Κρίσιμες περιοχές - Αμοιβαίος αποκλεισμός}{15}{section*.5}
+\contentsline {paragraph}{Κρίσιμη περιοχή - Υλοποίηση}{16}{section*.6}
+\contentsline {subsubsection}{\numberline {10.1.3}Mutex - Peterson}{16}{subsubsection.10.1.3}
+\contentsline {subsubsection}{\numberline {10.1.4}Mutex - Dekker}{16}{subsubsection.10.1.4}
+\contentsline {subsection}{\numberline {10.2}Σημαφόροι}{17}{subsection.10.2}
+\contentsline {subsubsection}{\numberline {10.2.1}Ορισμός σημαφόρου}{17}{subsubsection.10.2.1}
+\contentsline {subsubsection}{\numberline {10.2.2}Είδη σημαφόρων}{18}{subsubsection.10.2.2}
+\contentsline {subsubsection}{\numberline {10.2.3}Προστασία κρίσιμων περιοχών}{18}{subsubsection.10.2.3}
+\contentsline {subsubsection}{\numberline {10.2.4}Συγχρονισμός διεργασιών}{18}{subsubsection.10.2.4}
+\contentsline {subsubsection}{\numberline {10.2.5}Αναγνώστες και Συγγραφείς}{19}{subsubsection.10.2.5}
+\contentsline {subsubsection}{\numberline {10.2.6}Χρονοδρομολόγηση διεργασιών}{19}{subsubsection.10.2.6}
+\contentsline {paragraph}{Αλγόριθμοι Χρονοδρομολόγησης}{19}{section*.7}
+\contentsline {subsection}{\numberline {10.3}Μνήμη}{20}{subsection.10.3}
+\contentsline {subsubsection}{\numberline {10.3.1}Σελίδοποίηση}{20}{subsubsection.10.3.1}
+\contentsline {paragraph}{Μορφή ιδεατής διεύθυνσης `U' (n bits):}{20}{section*.8}
+\contentsline {paragraph}{Μετατροπή σε φυσική διεύθυνση Φ (σύνολο m bits):}{20}{section*.9}
+\contentsline {subsubsection}{\numberline {10.3.2}Μέσος Χρόνος Προσπέλασης Μνήμης}{20}{subsubsection.10.3.2}
+\contentsline {subsubsection}{\numberline {10.3.3}Τμηματοποίηση}{21}{subsubsection.10.3.3}
+\contentsline {paragraph}{Κάθε λογική διεύθυνση U (n bits) είναι στη μορφή:}{21}{section*.10}
+\contentsline {paragraph}{Μετατρέπεται σε μία Φυσική Διεύθυνση Φ στη μορφή:}{21}{section*.11}
+\contentsline {subsubsection}{\numberline {10.3.4}Σελιδοποιημένη Τμηματοποίηση}{21}{subsubsection.10.3.4}
+\contentsline {paragraph}{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}{21}{section*.12}
+\contentsline {paragraph}{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}{21}{section*.13}
+\contentsline {subsubsection}{\numberline {10.3.5}Τμηματοποιημένη Σελιδοποίηση}{21}{subsubsection.10.3.5}
+\contentsline {paragraph}{Η λογική διεύθυνση U (n bits) τώρα χωρίζεται σε 3 τμήματα.}{22}{section*.14}
+\contentsline {paragraph}{Και μετατρέπεται σε φυσική διεύθυνση Φ στη μορφή:}{22}{section*.15}
+\contentsline {subsection}{\numberline {10.4}Αντικατάσταση σελίδων}{22}{subsection.10.4}
+\contentsline {subsubsection}{\numberline {10.4.1}FIFO}{23}{subsubsection.10.4.1}
+\contentsline {subsubsection}{\numberline {10.4.2}Αλγόριθμος $2^\text {ης}$ Ευκαιρίας}{23}{subsubsection.10.4.2}
+\contentsline {subsubsection}{\numberline {10.4.3}LRU}{23}{subsubsection.10.4.3}
+\contentsline {section}{\numberline {11}Διάφορες σημειώσεις}{24}{section.11}
+\contentsline {subsection}{\numberline {11.1}Πίνακας Μετατροπών}{24}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Δυνάμεις του 2}{24}{subsection.11.2}
