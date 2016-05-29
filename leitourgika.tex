@@ -149,14 +149,14 @@ while(true){
 \subsection{Σημαφόροι}
 
 \begin{lstlisting}[caption=wait or P or down function implementaion]
-void signal(int *s){
+void wait(int *s){
 	while(*s<=0) {}
 	*s = *s - 1;
 }
 \end{lstlisting}
 
 \begin{lstlisting}[caption=signal or V or up function implementaiton]
-void wait(int *s){
+void signal(int *s){
 	*s = *s + 1;
 }
 \end{lstlisting}
